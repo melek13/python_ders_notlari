@@ -1,0 +1,231 @@
+[ ]
+print("mlk")
+mlk
+
+
+[ ]
+#bu işaret yorum satırıdır. kodların çalıştırlmasını istemediğimiz zaman kullanabiliriz.
+
+
+[ ]
+isim="mlk"  #str veri tipi
+#Veri olarak kullanacaksak tırnak içinde yazarız. 
+
+
+[ ]
+#burası notebook ekranı. bu kısmda print yazmasak da ekrana yazdırabiliriz ama bu programların ekranı kullanılırken geçerli değil.
+
+
+[ ]
+isim
+
+
+[ ]
+yas=30   #int veri tipi  
+#sayı olduğundan kullanılabilir bir yapıdadır. tırnak içinde yazmadık.
+
+
+[ ]
+pi= 3.14   #float veri tipi
+
+
+[ ]
+askerlik= True  #matematiksel değer değil, mantıksal veri tipi
+
+
+[ ]
+bekar=False #üstteki satırın False versiyonu
+
+
+[ ]
+bakiye=0
+krediborc=None  #yani kredi kartı yok. 0 yazmadık (sanki kart var da borcu yokmuş gibi olmasın)
+
+
+[ ]
+type(bakiye)
+int
+
+
+[ ]
+#String metotları
+
+
+[ ]
+metin="klavye canavarı"
+[ ]
+metin.upper()   #geçici olarak  büyük harf yapar. kalıcı olması için eşitlememiz gerekir.
+
+
+[ ]
+metin=metin.upper() 
+
+
+[ ]
+metin
+
+
+
+[ ]
+metin.title()   #başlık gibi her kelimenin  harfini büyütür.
+
+
+
+[ ]
+metin.lower()  #geçici olarak  küçük harf yapar. kalıcı olması için eşitlememiz gerekir.
+
+
+
+[ ]
+metin.replace("canavari","canavarı")   # metin.replace("ilk yazılan aranan","bu ikinci kısım bulduğumuzu değiştireceğimiz kelime")
+
+
+
+[ ]
+metin2="arabayı valeden aldıracak"
+
+
+[ ]
+metin+metin2
+
+
+[ ]
+metin+" "+metin2  #  metinlerde böyle toplama yapılabilir. arada boşluk istiyorsak da bu şekilde tırnak ile eklenebilir.
+
+
+[ ]
+metin.count("a")   #bir metnin içerisinde istediğimiz harf çeşidinin sayısını ya da bir kelime grubundan istediğimizin sayısını buldurabilir.
+4
+
+
+[ ]
+isim =input("isim giriniz   :")
+isim giriniz   :mlk
+
+
+[ ]
+isim
+
+
+
+
+[ ]
+sayi1=1444
+sayi2=13
+sayi1+sayi2
+sayi1-sayi2
+sayi1*sayi2
+sayi1**sayi2   #kuvvet almanın ilk yöntemi
+pow(sayi1,sayi2)   #pow(taban,kuvvet)
+sayi1/sayi2
+sayi1%sayi2    #kalanı verir
+1
+
+
+
+[ ]
+soz="Cartel Bir Numara en büyük cehennemden çıkan çılgın türk"
+soz.lower()   #her harfi küçük yapar
+
+[ ]
+soz.upper()     #her harfi büyük yapar
+
+[ ]
+soz.title()     #başlıkta olduğu gibi sadece ilk harfleri büyütür.
+
+[ ]
+len(soz.split(" "))
+9
+[ ]
+soz="bilgisayar kursu"
+len(soz.split(" "))     #split metodu boşluk sayısını değil kelime sayısını bulur.
+2
+[ ]
+import wikipedia
+# ara="Audi"
+# ara=ara.lower()
+# wikipedia.set_lang("tr")
+# python=wikipedia.page(ara)
+icerik=python.content
+icerik=icerik.lower()
+kelimesay=len(icerik.split(" "))
+keywordsay=icerik.count(ara)
+yuzde=keywordsay/kelimesay*100
+print("Oran  :", yuzde)
+
+Oran  : 10.151515151515152
+[ ]
+# KOŞULLAR
+# ==   eşittir
+# !=   eşit değildir
+cumle="ali ata bak"
+"ali" in cumle
+
+True
+[ ]
+"veli" in cumle
+False
+
+
+[ ]
+# if kullanıyorsak sonuç itibariyle true ve false çıktısı verir.
+if 5==5:
+  print("beşiktaş")
+else:
+  print("galatasaray")
+
+beşiktaş
+
+
+[ ]
+sayi=float(input("sayı giriniz :"))    #input daima str'dir. türünü değiştirmek için  float(input("sayı giriniz :") ) şeklinde olmalı.
+if sayi%2==0:
+  print("sayı çifttir.")
+else:
+  print("sayı tektir.")
+
+sayı giriniz :24.5
+sayı tektir.
+
+
+[ ]
+yas=float(input("yaş giriniz   :"))
+if yas<16:                                          #ilk if çalışmazsa altlara iner. o yüzden sayıyı belli bir aralikta vermemize gerek yok. 
+  print("ehliyet alamaz")
+elif yas<18:
+  print("motor ehliyeti alabilir")
+elif yas<21:
+  print("motor ve otomobil ehliyeti alabilirsin")
+elif yas<65:
+  print("motor, otomobil,otobüs ehliyeti alabilir.")
+else:
+  print("sağlık kontrolleri sonrasında tüm ehliyetleri alabilirsiniz")
+yaş giriniz   :49
+motor, otomobil,otobüs ehliyeti alabilir.
+
+
+[ ]
+yas=25
+cinsiyet="erkek"
+
+[ ]
+if yas>18 and cinsiyet=="erkek":
+  print("askere geliniz")
+else:
+  print("askere gelmeyin")
+askere gelmeyin
+[ ]
+if yas>18:
+  if cinsiyet=="erkek":
+    print("askere gelin")
+  else:
+    print("kadınlar için bir çağrı yok")
+else:
+  print("askere gelmeyin")
+askere gelin
+[ ]
+if yas>18 or cinsiyet=="erkek":        #or yazdığı için koşullardan birisi bile sağlansa doğru yanıtını alırız. cand olsaydı iki koşul da doğru olmalı.
+  print("askere geliniz")
+else:
+  print("askere gelmeyin")
+askere geliniz
