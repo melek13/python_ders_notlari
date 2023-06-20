@@ -1,0 +1,140 @@
+#Wikipedia£a aranınlan anahtar kelimenin kullanıldığı metnin biri nsan tarafında yazılma durumunu tahmin etme. insan tarafından yazılan bir yazıda anahtar kelimenin bulunma oaranı %2-%5 arası.
+aranilan_kelime = input("Aramak istediğiniz kelime    :")
+aranilan_kelime = aranilan_kelime.lower()
+wikipedia.set_lang("tr")
+aranilan_bilgi = wikipedia.page(aranilan_kelime)
+icerik = aranilan_bilgi.content
+icerik = icerik.lower()   #veri kaçırmamak adına hepsiini büyük ya da küçük harf yaptık
+kelimeler = icerik.split(" ")    #boşluğa göre hepsini ayırdı ve bir listeye dönüştürdü. ekrana yazdırılıp bakılabilir. splitin defaultu boşluğa göre ayırmak. split( yarasak da boşluğa göre ayırır.)
+kelime_sayisi = len(kelimeler)    #şimdi de o listedeki eleman sayısını bulmuş olacağız
+aranilan_kelime_sayisi = icerik.count(aranilan_kelime)
+
+oran = aranilan_kelime_sayisi/kelime_sayisi*100
+print("ARADIĞINIZ KELİMENİN METİNDE GEÇME SAYISI  :" ,aranilan_kelime_sayisi)
+print("METİNDEKİ TOPLAM KELİME SAYISI   :" , kelime_sayisi)
+print("ANAHTAR KELİME ORANI   :", oran)
+
+
+isim = "Melek"   #string
+dolar = 19.71  #float
+yıl = 2023   #integer
+borc = None   #nonetype
+Odev = True    #boolen
+rapciler = ["ceza", "sagopa", "ezhel"]    #liste
+sifreler = ("ilksifre",1234123)      #tuple (demet, düvenli, değiştirilemez)
+urunler = {                          #dictionary
+    "bilgisayar":30000,
+    "kitap":10,
+    "defter":20,
+}
+
+isim.islower()     #lower küçük harfe çevirir, islower küçük harf mi diyer sorar
+
+dolar>20
+
+len(rapciler)==5  #rapciler listesinde 5 eleman mı var
+
+
+len(rapciler)!=5  #rapciler listesinin uzunluğu 5 e eşit değil mi
+
+"e" in isim   #isimim içerisinde e var mı
+
+ "Fuat" in rapciler   #Fuat rapcilern içinde mi
+
+"ç" not in isim  #ç harfi ismin içinde var mı
+
+sayi = input ("sayi giriniz    :")    #input daima string dir.
+sayi*5
+
+sayi = input ("sayi giriniz    :")
+sayi = float(sayi)#içerik numeric bir ifadeyse başındaki ibareye göre türü dönüştürür
+sayi*5
+
+sayi = input ("sayi giriniz    :")
+sayi = float(sayi)
+kalan = sayi%2
+if kalan == 0:     #kalan 0 mı.
+  print("sayı çifttir.")   #print in içeride yazılmas öenmli.hangi koşulla ilgili olduğunu bena göre çalışır
+print("sayı çift değildir")
+
+sayi = input ("sayi giriniz    :")
+sayi = float(sayi)
+kalan = sayi%2
+if kalan == 0:     #kalan 0 mı.
+  print("sayı çifttir.")   #print in içeride yazılmas öenmli.hangi koşulla ilgili olduğunu bena göre çalışır
+else:
+  print("sayı çift değildir")
+
+print("işlem devam ediyor")
+
+#tek çift tırnak kullanımı bu aşamada önemli değil. ancak şu durumda kullanılır.
+print("İstanbul'u dinliyorum gözlerim kapalı")   #yazarken kesme işaretiyle yazdırılıcak metnin ayrımı için gereklli.
+print('İstanbul\'u dinliyorum gözlerim kapalı')  #buradaki sola yarık \ kaçış operatörüdür. yanındaki işaretin bir anlamı olma ihtimali varsa onun çalışmamasını ve göründüğü gibi kullanılmasını sağlar.
+
+print ("""Sanma şahım herkesi sen sadıkane yar olur    #Yavuz Sultan Selim tarafından vezni aher tarzında yazılan ilk beyit.
+Herkesi sen dost mu sandın belki ol ağyar olur.
+Sadıkane belki ol bu alemde dildar olur.
+Yar olur ağyar olur  dildar olur serdar olur""")     #normalde print kullanılırken sadece tırnak işareti koysak böyle alt satıra inip yazamayız. ama bloklar halinde yazdırmak istersek bu şekilde 3 tırnak kullanabiliriz.
+
+#girilen bilginin mail adresi olup olmadığını sorgula.
+mail = input("Mail adresinizi giriniz   :")
+
+
+if mail == mail.lower() and mail.count("@gmail.com") == 1:
+  print("bu bir mail adresi")
+else:
+  print("bu bir mail adesi değil. mail adresiniz tekrar giriniz.")
+
+###hocanın çözümü
+mail = input("Mail adresinizi giriniz   :")
+if mail.endswith("@gmail.com"):
+  print("bu bir mail adresi")
+
+mail = input("Mail adresinizi giriniz   :")
+if mail[-10:]==("@gmail.com"):
+  print("bu bir mail adresi")
+
+## admin, 1453  ---> giriş başarılı, bilgiler yanlıs
+username = input("Kullanıcı adınızı giriniz   :")
+password = input ("Şifrenizi giriniz    :")
+
+
+if (username == "admin") and (password == "1453"):
+  print("giriş başarılı")
+else:
+  print("bilgiler yanlış")
+
+# bir algoritmada birer tane if ve else olur, ama bunların arasına istenildiği kadar elif konulabilir
+yas = 15
+
+if yas<16:
+  print("Ehliyet alamazsınız")      #ilk koşulu sağladığı için zaten ikinci koşula bakmaz o yüzden belli bir sayı aralığı vermemize gerek yok
+elif yas<18:
+  print("Ehliyet alabilirsiniz")
+elif yas<30:
+  print("otomobil ve motor ehliyeti alabilir")
+else:
+  print("Otobüs Otomobil ve motor ehliyeti alabilirsiniz")
+
+#Büyük ünlü uyumu tespit etme
+kelime=input("Kelime giriniz   :")
+kelime = kelime.lower()
+a=kelime.count("a")
+ı=kelime.count("ı")
+o=kelime.count("o")
+u=kelime.count("u")
+e=kelime.count("e")
+i=kelime.count("i")
+ö=kelime.count("ö")
+ü=kelime.count("ü")
+
+isayi = e+i+ö+ü
+ksayi = a+ı+o+u
+i_sesli="e,i,ö,ü"
+
+if ksayi + isayi == 1:
+  print("büyük ünlü uyumu aranmaz")
+elif ksayi * isayi == 0:
+  print("büyük ünlü uyumuna uyar")
+else:
+  print("büyük ünlü uyumuna uymaz")
