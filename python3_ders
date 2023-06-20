@@ -1,0 +1,211 @@
+### LİSTELER
+
+isimler = ["ayşe", "fatma", "ali", "ahmet"]
+
+isimler = []   #boş liste
+
+liste =list()
+
+
+dir(list)    #listede kullanılabilecek metotlar ( alt tireli olanlar hariç)
+['__add__',
+ '__class__',
+ '__class_getitem__',
+ '__contains__',
+ '__delattr__',
+ '__delitem__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__gt__',
+ '__hash__',
+ '__iadd__',
+ '__imul__',
+ '__init__',
+ '__init_subclass__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__reversed__',
+ '__rmul__',
+ '__setattr__',
+ '__setitem__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ 'append',
+ 'clear',
+ 'copy',
+ 'count',
+ 'extend',
+ 'index',
+ 'insert',
+ 'pop',
+ 'remove',
+ 'reverse',
+ 'sort']
+
+
+isimler.append("melek")   #eşitlememize gerek kalmadan otomatik olarak listeye bu ismi ekler.
+
+
+isimler
+['ayşe', 'fatma', 'ali', 'ahmet', 'melek']
+
+
+isimler.insert(0,"mehmet")   # insert iki parametre alır. ilki kaçıncı sıraya ekleyeceğimiz, ikincisi de ne ekleyeceğimiz
+
+
+
+isimler
+['mehmet', 'ayşe', 'fatma', 'ali', 'ahmet', 'melek']
+
+
+isimler.remove("melek")
+
+
+isimler
+['mehmet', 'mehmet', 'ayşe', 'fatma', 'ali', 'ahmet']
+
+
+### Bir giriş yapalım. birisinin ismi girilsin. o isim o listede varsa "bu isim zaten var desin", yoksa eklesin.
+
+isimler = ['mehmet', 'ayşe', 'fatma', 'ali', 'ahmet']
+isim = input("Bir isim giriniz    :")
+
+
+if isim in isimler:
+  print("Bu isim zaten listede var")
+
+else:
+  isimler.append(isim)
+  print("Kişi eklendi")
+  print(isimler)
+  
+Bir isim giriniz    :melek
+Kişi eklendi
+['mehmet', 'ayşe', 'fatma', 'ali', 'ahmet', 'melek']
+
+
+
+sensor = [1,1,0,0,1,0,1,0,0]
+
+
+sensor.count(0)
+5
+
+
+sensor2=sensor
+
+
+sensor2.append(1)    #ikisine de ekledi.
+
+
+sensor
+[1, 1, 0, 0, 1, 0, 1, 0, 0, 1]
+
+
+sensor2
+[1, 1, 0, 0, 1, 0, 1, 0, 0, 1]
+
+
+#ama bir aşamadan sonra çatal oluşşun iki ayrı şekilde devam etsin istersem deepcopy yapmalıyım
+sensor3=sensor.copy()
+
+
+sensor.append(1)
+
+
+sensor
+[1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1]
+
+
+sensor3
+[1, 1, 0, 0, 1, 0, 1, 0, 0, 1]
+[
+
+
+sensor3.clear()  #yol çatallaştığı için artık ikisi de ayrı tanımlı elemanlar olduğundan sadece sensor3 ün içindekileri silindi.
+
+
+sensor3
+[]
+
+
+sensor
+[1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1]
+
+
+# tamemen silinmesini istersem
+del sensor3
+
+sensor3    #artık böyle bir liste olmadığından hata verir
+
+
+
+
+#sort görülen yerde sıralama vardır.
+sensor.sort()    #varsayılanı küçükten büyüğe sıralar.içine fonksiyon alır ve ona göre de sıralama yapabilir.
+sensor
+[0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
+
+
+
+sensor.reverse()    #hangi şekilde sıralandıysa o sırayı terine göre sıralar.
+sensor
+
+[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+
+
+sensor.pop()   #en sondaki elemanı siler ve onu ekran da yazdırı ki silineni de görmüş oluruz
+0
+
+
+isimler.extend(sensor)  #extend geliştirmeyi sağlar. isimlere sensor listesini ekledik.
+
+
+isimler
+['mehmet', 'ayşe', 'fatma', 'ali', 'ahmet', 'melek', 1, 1, 1, 1, 1, 1, 0, 0, 0]
+
+
+isimler + sensor #bu şekilde de birbirine eklenmiş hali görülür ancak kaydetmez. bu durum geçicidir.
+['mehmet',
+ 'ayşe',
+ 'fatma',
+ 'ali',
+ 'ahmet',
+ 'melek',
+ 1,
+ 1,
+ 1,
+ 1,
+ 1,
+ 1,
+ 0,
+ 0,
+ 0,
+ 1,
+ 1,
+ 1,
+ 1,
+ 1,
+ 1,
+ 0,
+ 0,
+ 0]
+
+
+isimler.index("ahmet")  #isimler listesindeki ahmet'in index ini bulma
+4
+
