@@ -1,0 +1,32 @@
+
+### gelir vergisi hesaplama
+kazanc = int(input("Maaşınız giriniz    :"))
+yetmisbin = 70000*0.15
+yuzellibin =  (150000 - 70000)*0.20
+besyuzellibin =(550000 - 150000)*0.27
+bindokuzyuz = (1900000 - 550000)*0.35
+bindokuzyuz_ustu = (kazanc - 1900000)*0.40
+
+
+if kazanc < 70000:
+  vergi = kazanc*0.15
+  
+elif kazanc < 150000:
+  vergi = yetmisbin + ( kazanc - 70000)*0.20
+  
+elif kazanc < 550000:
+  vergi = yetmisbin + yuzellibin + (kazanc - 150000)*0.27
+  
+elif kazanc < 1900000:
+  vergi = yetmisbin + yuzellibin + besyuzellibin + (kazanc - 550000)*0.35
+
+else:
+  vergi = yetmisbin + yuzellibin + besyuzellibin + bindokuzyuz + (kazanc - 1900000)*0.4
+
+print("Ödemeniz gereken vergi tutarı    :", vergi)
+print("Ortalama aylık maaşınız      :", (kazanc - vergi)/12)
+
+
+Maaşınız giriniz    :150000
+Ödemeniz gereken vergi tutarı    : 26500.0
+Ortalama aylık maaşınız      : 10291.666666666666
