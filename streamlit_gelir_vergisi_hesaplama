@@ -1,0 +1,27 @@
+# pycharmda terminal kısmına pip install streamlit yazıp yüklüyoruz.
+# bu çalışılan sayfayı webde çalıştırmak için terminale streamlit run main.py (buradaki main.py çalıştırmak istediğimiz dosyanın adı)
+
+
+import streamlit as st
+
+st.title("Gelir Vergisi Hesaplama")
+
+kazanc = st.number_input("Yıllık kazancınızı giriniz    :")
+
+v70 = 70000*0.15
+v150 = (150000 - 70000)*0.20
+v550 = (550000 - 150000)*0.27
+v1900 = (1900000 - 550000)*0.35
+
+if kazanc < 70000:
+    vergi = kazanc*0.15
+elif kazanc < 150000:
+    vergi = v70 + (kazanc - 70000)*0.20
+elif kazanc < 550000:
+    vergi = v70 + v150 + (kazanc - 150000)*0.27
+elif kazanc < 1900000:
+    vergi = v70 + v150 + v550 + (kazanc - 550000)*0.35
+else:
+    vergi = v70 + v150 + v550 + v1900 + (kazanc - 1900000)*0.40
+
+st.write("Ödemeniz gereken vergi miktarı   :",vergi)
