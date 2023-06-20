@@ -209,3 +209,101 @@ isimler + sensor #bu şekilde de birbirine eklenmiş hali görülür ancak kayde
 isimler.index("ahmet")  #isimler listesindeki ahmet'in index ini bulma
 4
 
+
+
+arabalar = ["audi","togg","toyota","mercedes","volkswagen"]
+
+for i in arabalar:
+  ilk = i[0] ##arabalar listesindeki her elemanın ilk harfini yazdır.
+  print(ilk)
+  print(len(i), "harfli" , i)
+
+for i in arabalar:
+  if "a" not in i:     ##içinde a harfi olamyanları yazdır
+    print(i)
+
+sayilar = [1,2,3,4,5,6,7]
+#sayilar listesindeki çift sayıları yazdırın
+
+for i in sayilar:
+  if i%2 == 0:
+    print(i)
+
+for i in range(40):       #40'a kadar olan sayıların arasında 13'e tam bölünen sayıları yazdır.
+  if i % 13 == 0:
+    print(i)
+
+#40'a kadar olan sayıların toplamını yazdır. print fonksiyonu eğer fro döngüsünün içine yazılırsa o zaman ger eklediği yerde ekrana yazar. sadece sonucu istiyorsak böyle yazmalıyız.
+
+toplam = 0
+for i in range(40):
+  toplam += i
+
+print (toplam)
+
+# 13 ' e kadar olan sayıların çarpımını yazdırın.
+
+carpim = 1
+
+for i in range(1,13):  #burada 13 dahil değil.hesaplarken ilk sayıyı alır ikinci sayıyı almaz.
+  carpim = carpim*i
+
+print(carpim)
+
+#sana direkt 1 milyon mu, yoksa hergün iki kat artarak devam eden miktarlarda bir ay boyunca ödeme mi yapılsın? Hangisi daha kârlı?
+
+toplam=1
+
+for i in range(1,31):
+  toplam = toplam*2
+  if (toplam>1000000):
+    print("ulaştığın ödeme tutarı   :", toplam)
+    print("iyi ki bu yöntemle ödeme almayı seçmişim :))))) Daha",i,"günde bile o tutara eriştim")
+    break
+print("Bir ayın sonunda alacağın toplam para   :", toplam)
+if toplam > 1000000:
+  print("Her gün artarak aldığın daha iyi tabii. Ama sana veren kisiye her gün vermeye devam edeceği konusunda nasıl güvenebilirsin bilemem tabii :)))")
+else:
+  print("sen direkt 1 milyonu al derim :))))")
+
+
+import string #ascii karakterleriyle alakalı bir kütüphane
+
+
+string.ascii_lowercase     #sonunda parantez olmadığı için metot olmadığını anlıyoruz.
+
+string.ascii_uppercase 
+
+string.digits
+
+string.punctuation
+
+import random
+
+sayilar = [1,2,3,4,5,6,7,8,9,10]
+
+random.choice(sayilar)    #sayiar listesinden rastgele bir sayi seç
+
+random.choices(sayilar, k=13)     #rastgele 13 tane seç
+
+random.sample(sayilar, k=2)    #aynısını seçemez
+
+random.shuffle(sayilar)   #sayıları karıştırır
+
+sayilar    #kripto(şifreleme) işlemlerinde kullanılmaz. çünkü bunun algıoritması zamana bağlı çalışır.
+
+# passwordmonster.com sitesinde olası bir şifreyi yazıp ne kadar sürede çözüleceğini hesaplatılabilir.
+
+#şifre ödevi
+#şifre tavsiye et
+#st.text_input("",type='password')
+#en az 8 karakter
+#büyük harf, küçük harf, noktalama, rakam
+
+
+#şifre kontrol et
+#kullanıcıdan şifre iste.
+#girilen şifre güvenilir mi değil mi?
+#kurallar yukarıdaki gibi. 
+
+
