@@ -1,0 +1,76 @@
+# streamlitte sol tarafta seçenek çıkmasını sağlamak için pycharmda çalışırken sol taraftaki çalışma klasörü üzerinde işlem yapmalıyız.
+# soltaraftaki çalıştığımız projenin üzerine gelip (en üstteki, yani ana dizin) sağ tıklanır.
+# new --> directory seçilir.
+# klasörün adı pages olarak yazılır. Adı bu şekilde olmalıdır.
+# bu sefer pages kalsörünün üstüne gelip, sağ tıklanır.
+# new --> python file seçilir
+# istediğimiz ismi verebiliriz. Bu isim soldaki menünün adı olacak. orada görünecek.sonuna .py eklenmeli.mesela sifreyap.py
+
+
+
+## bu python dosyasının adı Şifre Yap.py
+import streamlit as st
+import random
+import string
+
+buton = st.button("Şifre Yap")
+
+if buton:    # buton == True olarak da yazılabilir. if buton: demek butona basıldıysa demek.
+
+     buyuk = random.choices(string.ascii_uppercase, k=2)
+     kucuk = random.choices(string.ascii_lowercase, k=2)
+     rakam = random.choices(string.digits, k=2)
+     nokta = random.choices(string.punctuation, k=2)
+
+     karakter = buyuk + kucuk + rakam + nokta
+     random.shuffle(karakter)
+     sifre = "".join(karakter)
+
+     st.write("Tavsiye şifreniz   :",sifre)
+     
+     
+## bu python dosyasının adı da Şifre Kontrol Et.py
+
+import streamlit as st
+import random
+import string
+
+
+sifre = st.text_input ("Şifrenizi giriniz   :", type="password")
+buton = st.button("Şifreyi Kontrol Et")
+
+buyuk = string.ascii_uppercase
+kucuk = string.ascii_lowercase
+rakam = string.digits
+nokta = string.punctuation
+
+buyuksayi = 0
+kucuksayi = 0
+rakamsayi = 0
+noktasayi = 0
+
+
+
+
+
+for i in sifre:
+    buyuksayi += buyuk.count(i)
+    kucuksayi += kucuk.count(i)
+    rakamsayi += rakam.count(i)
+    noktasayi += nokta.count(i)
+
+if len(sifre) >= 8 and (buyuksayi * kucuksayi * rakamsayi * noktasayi != 0):
+    sonuc = "Güvenilir"
+else:
+    sonuc = "Güvenilir değil"
+    
+if len(sifre)>2:      #böyle bir kısım eklememizin sebebi, henüz şifre yazılmadığında giriş alanı boş olduğundan hemen güvenilir değil yazısı beliriyor. Bu kısım eklendiğinde şifre girişi olduğu belli oluyor ve butona basana kadar sonuca dair bir bilgi vermiyor
+    if sonuc == "Güvenilir":
+        st.success("Şifre belirleme başarılı")
+    else:
+        st.error("Şifreniz güvenilir olmadığıiçin şifre belirleme başarısız")
+        st.error("Şifreniz güvenilir olması için en az birer tane büyük ve küçük harf, noktalama işareti ve rakam içermeli")
+
+
+
+
