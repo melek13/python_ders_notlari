@@ -1,0 +1,270 @@
+
+
+import string 
+import random 
+
+
+sifre = input("Şifrenizi giriniz   :")
+sayacbyk = 0
+sayackck = 0
+sayacnkta = 0
+sayacrkm = 0
+
+for i in sifre:
+  sayacbyk += string.ascii_uppercase.count(i)
+  sayackck += string.ascii_lowercase.count(i) 
+  sayacnkta +=string.punctuation.count(i)
+  sayacrkm +=string.digits.count(i)
+  print("büyük harf",sayacbyk)  
+  print("küçük harf",sayackck)    
+  print("noktalama", sayacnkta)   
+  print("rakamlar",sayacrkm)
+ 
+
+##şifre öner
+
+buyuk = string.ascii_uppercase
+kucuk = string.ascii_lowercase
+sayi = string.digits
+noktalama = string.punctuation
+
+sifre_son = ""
+
+sifre = random.choice(buyuk) + random.choice(kucuk) + random.choice(noktalama) + random.choice (sayi)
+
+
+
+for i in range(8):  
+  sifre_son += random.choice(sifre)
+  if any(i in buyuk for i in sifre) and any(i in kucuk for i in sifre) and any(i in sayi for i in sifre) and any(i in noktalama for i in sifre):
+      
+    print(sifre_son)
+
+
+
+cumle = "ipek ılık süt iç"
+
+cumle.split(" ")
+
+
+
+kelimeler = cumle.split(" ")
+
+kelimeler[-1] = "içme"
+
+kelimeler
+
+"".join(kelimeler)    #yukarıdaki liste halini string haline dönüştürdük. Ancak kriter belirtmediğimiz için birleşik yaptı.
+
+" ".join(kelimeler)   #kelimelerin arasına boşluk koyarak birlieştirdi.
+
+cumle2 = " ".join(kelimeler)
+
+cumle2
+
+if " " in cumle2:    #eğer cumle2 nin içinde boşluk varsa ekrana bu bir cümledir yazsın.
+  print("bu bir cümledir")
+else:
+  print("bu bir kelimedir")
+
+import random
+import string
+
+
+kucuk = random.choices(string.ascii_lowercase, k=2)    # bu listeden rastgele iki eleman seç.
+buyuk = random.choices(string.ascii_uppercase,k=2)
+rakam = random.choices(string.digits,k=2)
+nokta = random.choices(string.punctuation, k=2)
+
+kucuk
+
+buyuk
+
+rakam
+
+nokta
+
+
+
+
+
+
+#şifre güvenli mi
+
+kucuk = string.ascii_lowercase
+buyuk = string.ascii_uppercase
+rakam = string.digits
+nokta = string.punctuation
+buyuksayi = 0
+kucuksayi = 0
+rakamsayi = 0
+noktasayi = 0
+
+sifre = input("Şifrenizi giriniz   :")
+
+for i in sifre:
+  buyuksayi += buyuk.count(i)
+  kucuksayi += kucuk.count(i)
+  rakamsayi += rakam.count(i)
+  noktasayi += nokta.count(i)
+
+if len(sifre) >= 8 and (buyuksayi*kucuksayi*rakamsayi*noktasayi != 0):
+  sonuc = "Güvenilir"
+else:
+  sonuc = "Güvenilir değildir."
+
+print(sifre)
+print(buyuksayi)
+print(kucuksayi)
+print(rakamsayi)
+print(noktasayi)
+print(sonuc)
+   
+
+### SÖZLÜKLER
+
+sozluk = {
+    "Audi": "Almanya",
+    "Toyota" : "Japonya",
+    "Togg" : "Türkiye",
+    "Alfa Romeo" : "İtalya",
+    "Renault" : "Fransa",
+    "Ford" : "USA"
+}
+
+len(sozluk)
+
+## sıralı bir yapı olmadığından sozluk[0]  gibi bir şey yapamam. hata verir.
+## Ama key'lere göre ayarlanmış bir yapı olduğundan key değeri girildiğinde karşısındaki value değerini verir.
+
+sozluk["Audi"]
+
+sozluk.get("Audi")
+
+sozluk['Tofaş']   # yazılırsa hata verir
+
+sozluk.get("Tofaş")    # yazılırsa o değer olmasa da hata vermez ve program çalışmaya devam eder.
+# BU şekilde yazıldığında key'lerin içinde arar ve varsa value değerini yazdırır.
+
+sozluk['Tofaş'] = "Türkiye"     #eleman ekledik
+
+sozluk
+
+sozluk.keys()    #bütün anahtarları verir
+
+sozluk.values()     #bütün value leri verir.
+
+sozluk.items()    #bütün item (key+value)leri getirir. bunu liste halinde getirdiği için artık sıralı bir şekilde ifade edilebilir ve çağrılabilir.
+
+#value değerleri Türkiye olanları ekrana yazdırın.
+
+
+for oto in sozluk.keys():
+  if sozluk.get(oto) == "Türkiye":
+    print(oto)
+
+okul = [
+    {
+        "isim":"Deniz",
+        "odev":True,
+        "puan":[40,50,60]
+    },
+    {
+        "isim":"Çağrı",
+        "odev":False,
+        "puan":[30,40,30]
+    },
+    {
+        "isim":"Zafer",
+        "odev":True,
+        "puan":[50,60]
+    }
+]
+
+type(okul)
+
+type(okul[0])
+
+#sum metodu listenin içindeki sayıları toplar.
+sum([10,20,30])
+
+sum([10,20,30]) /  len([10,20,30])
+
+#öğrencilerin isimler ve yanında da not ortalamaları yazsın.
+for kisi in okul:
+  puan_ort = sum(kisi.get("puan")) / len(kisi.get("puan"))
+  print(kisi.get("isim"),":",puan_ort)
+ 
+ 
+ 
+ 
+ 
+ # ŞİFRE ÖDEVİNİN ÇÖZÜMÜ
+
+users = {
+    "admin":"123456",
+    "superadmin":"123",
+    "birisi":"131313",
+    "birisi2":"1390"
+}
+
+#kullanıcıdan kullanıcı adı iste
+#kullanıcıdan şifre iste
+#böyle bir kullanıcı varsa ve şifresi de o kullanıcıya aitse giriş yapıldı yazsın. değilse giriş başarılı değildir yazsın.
+
+username = input("Kullanıcı adınızı giriniz   :")
+password = input("Parolanızı giriniz   :")
+
+
+if users.get(username) == password:
+   print("giriş başarılı")
+else:
+   print("Kullanıcı adı veya şifre hatalı")
+
+#kullanıcıdan kullanıcı adı iste
+#kullanıcıdan şifre iste
+#böyle bir kullanıcı varsa ve şifresi de o kullanıcıya aitse yeni şifre girme yeri açılsın.
+#kullanıcı yeni şifresini girince artık yeni şifresi yeni girdiği şifre olsun
+
+
+username = input("Kullanıcı adınızı giriniz   :")
+password = input("Parolanızı giriniz   :")
+
+if users.get(username) == password:
+  new_password = input("Yeni şifrenizi giriniz   :")
+  users[username] = new_password
+  print("Parolanız değişti")
+else:
+  print("Kullanıcı adı veya şifre hatalı.")
+  
+
+users
+
+# diğer çözüm
+
+username = input("Kullanıcı adınızı giriniz   :")
+password = input("Parolanızı giriniz   :")
+new_password = input("Yeni şifrenizi giriniz   :")
+
+if users.get(username)==password:
+  users.update({username:new_password})
+  
+
+
+users
+
+sozluk
+
+sozluk.update({"Alfa Romeo":"İtalya-İngiltere"})
+
+sozluk
+
+sozluk.pop("Ford")   #normalde pop son elemanı atardı. burada yazılan elemanı atıyor.
+
+
+sozluk
+
+sozluk.clear()   #sözlüğün içindeki her şeyi siler
+
+
+sozluk
